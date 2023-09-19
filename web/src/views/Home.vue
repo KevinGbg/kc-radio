@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="side">
     <div class="pad">
       <v-card class="px-1 rounded-0" color="cards">
         <div class="d-flex justify-space-between align-center">
@@ -79,7 +79,7 @@
         </v-divider>
         <div class="d-flex justify-space-evenly">
           <v-hover v-slot="{ isHovering, props }">
-            <div v-bind="props" v-ripple class="text-center wid" style="display: block;">
+            <div @click="$router.push('/settings')" v-bind="props" v-ripple class="text-center wid" style="display: block;">
               <v-icon>
                 mdi-cog
               </v-icon>
@@ -90,6 +90,9 @@
               </v-expand-transition>
             </div>
           </v-hover>
+          <v-divider vertical>
+
+          </v-divider>
           <v-hover v-slot="{ isHovering, props }">
             <div @click="$router.push('/connect')" v-bind="props" v-ripple class="text-center wid" style="display: block;">
               <v-icon>
@@ -124,48 +127,3 @@ export default {
   },
 };
 </script>
-
-<style>
-
-.pos {
-  position: absolute!important;
-  right: 0px;
-  bottom: 0px;
-}
-
-.inner {
-  padding: 100px;
-}
-
-.display {
-  top: 345px;
-  right: 3px;
-  margin: auto;
-  width: 175px;
-  height: 330px;
-}
-
-.pad {
-  padding: 4px 4px 0px 4px;
-}
-
-.bar {
-  height: 70px;
-}
-
-.wid {
-  width: 50%;
-  padding: 0px 0px;
-  display: flex!important;
-  place-content: center;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  flex-direction: column;
-  min-height: 64px;
-}
-
-
-
-</style>

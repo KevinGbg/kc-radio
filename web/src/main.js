@@ -13,7 +13,9 @@ import { createApp } from 'vue'
 // Plugins
 import { registerPlugins } from '@/plugins'
 
-const app = createApp(App)
+import store from './store'
+
+const app = createApp(App).use(store)
 
 registerPlugins(app)
 

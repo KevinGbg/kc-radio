@@ -5,12 +5,17 @@ const routes = [
   {
     path: '/',
     component: () => import('@/views/Home.vue'),
-    meta: { transition: 'slide-x-reverse-transition' },
+    meta: { transition: 'slide-y-transition' },
   },
   {
     path: '/connect',
     component: () => import('@/views/Connect.vue'),
-    meta: { transition: 'slide-x-transition' },
+    meta: { transition: 'slide-y-transition' },
+  },
+  {
+    path: '/settings',
+    component: () => import('@/views/Settings.vue'),
+    meta: { transition: 'slide-y-transition' },
   },
 ]
 

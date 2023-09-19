@@ -21,6 +21,16 @@ export default createVuetify({
           secondary: '#5CBBF6',
           background: '#badcf9',
           cards: '#465f75',
+          btn: '#cccccc'
+        },
+      },
+      dark: {
+        colors: {
+          primary: '#ffffff',
+          secondary: '#5CBBF6',
+          background: '#121212',
+          cards: '#343434',
+          btn: '#cccccc'
         },
       },
     },
