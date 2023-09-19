@@ -17,6 +17,11 @@ const routes = [
     component: () => import('@/views/Settings.vue'),
     meta: { transition: 'slide-y-transition' },
   },
+  {
+    path: '/members',
+    component: () => import('@/views/Members.vue'),
+    meta: { transition: 'slide-y-transition' },
+  },
 ]
 
 const router = createRouter({

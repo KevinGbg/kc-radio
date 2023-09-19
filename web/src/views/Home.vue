@@ -50,7 +50,7 @@
           </p>
           <div class="bar d-flex align-end">
             <v-divider :thickness="2" vertical></v-divider>
-            <div>
+            <div @click="$router.push('/members')">
               <v-icon style="bottom: 0px;" size="40" class="pa-3">
                 mdi-account-multiple
               </v-icon>

@@ -4,7 +4,9 @@ const resourceid = (window).GetParentResourceid ? (window).GetParentResourceid()
 
 export default createStore({
   state: {
-    Menu: false,
+    Menu: true,
+
+    on: true,
 
     settings: {
       anon: true,
