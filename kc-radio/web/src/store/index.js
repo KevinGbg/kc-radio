@@ -5,7 +5,7 @@ import router from '@/router/index'
 
 export default createStore({
   state: {
-    Menu: false,
+    Menu: true,
 
     on: true,
 
@@ -18,11 +18,33 @@ export default createStore({
       anon: true,
       dark: true,
       size: '1',
-    }
+    },
+
+    members: [
+      'Dev Devsson',
+      'Dev Devsson',
+    ],
+
+    volume: '100%'
   },
   getters: {
   },
   mutations: {
+    increaseVolume(state) {
+      const currentVolume = parseInt(state.volume);
+      if (!isNaN(currentVolume) && currentVolume <= 95) {
+        state.volume = `${currentVolume + 5}%`;
+      } else {
+        state.volume = '100%';
+      }
+    },
+    
+    decreaseVolume(state) {
+      const currentVolume = parseInt(state.volume);
+      if (!isNaN(currentVolume) && currentVolume >= 5) {
+        state.volume = `${currentVolume - 5}%`;
+      }
+    },
   },
   actions: {
     Open(_commit, item) {
