@@ -100,7 +100,7 @@ Radio.ToggleRadioAnimation = function(state)
 	end
 end
 
-Radio.Open = function()
+Radio.Open = function(callback)
     Radio.ToggleRadioAnimation(true)
     SendNUIMessage({
         type = "Open",
@@ -118,6 +118,12 @@ Radio.Open = function()
     })
     SetNuiFocus(true, true)
 end
+
+Radio.Open(function(error)
+    if error then
+        print("Error opening radio: " .. error)
+    end
+end)
 
 Radio.JoinChannel = function(frequency)
     if Settings.anon then
