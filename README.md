@@ -1,7 +1,8 @@
 ### KC-RADIO
 **Overview**
 This radio script is currently in beta and provides a simple and easy-to-use radio system for your FiveM server. It allows players to communicate with each other through different channels, lock channels for specific jobs, and switch between anonymous and non-anonymous communication.
-**Discord: [Join](https://discord.gg/vV6vzqNMDB)**
+
+**Discord: [Join our discord!](https://discord.gg/vV6vzqNMDB)**
 
 **Dependencies**
 To use this script, you need the following dependencies:
