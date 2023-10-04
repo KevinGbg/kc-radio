@@ -1,3 +1,4 @@
+Radio = {}
 if Config.Framework == "ESX" then
     KC = exports.es_extended:getSharedObject()
 
