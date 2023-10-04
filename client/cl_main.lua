@@ -13,11 +13,11 @@ if Config.Framework == "ESX" then
     end)
 
     GetName = function()
-        return KC.PlayerData.character.firstname.. " " .. KC.PlayerData.character.lastname
+        return KC.PlayerData.firstName.. " " .. KC.PlayerData.lastName
     end
 
     GetId = function()
-        return KC.PlayerData.characterId
+        return KC.PlayerData.identifier
     end
 
     GetJob = function()
