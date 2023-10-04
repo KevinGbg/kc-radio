@@ -1,6 +1,7 @@
 if Config.Framework == "ESX" then
     KC = exports.es_extended:getSharedObject()
 
+    RegisterNetEvent('esx:playerLoaded')
     AddEventHandler('esx:playerLoaded', function(d)
         KC.PlayerData = d
 
