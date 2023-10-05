@@ -10,7 +10,7 @@
             <v-icon>
               mdi-account
             </v-icon>
-            {{ member }}
+            {{ member.name }}
           </v-card>
         </div>
       </v-card>
