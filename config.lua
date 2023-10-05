@@ -1,6 +1,9 @@
 Config = {}
 
-Config.Framework = 'ESX' -- ESX or QB
+Config.Framework = 'ESX' -- ESX or QB -- REVOKED FOR OUR SWEDISH CUSTOMERS 
+
+
+Config.Base = "es_extended" -- only use for revoked config
 
 Config.Item = true --if item = false then use a key
 Config.ItemName = "bread"
@@ -20,3 +23,5 @@ Config.Channels = {
         jobs = {"cardealer"}
     }
 }
+
+Config.checkForUpdates = true

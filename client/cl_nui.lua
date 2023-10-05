@@ -7,9 +7,11 @@ end)
 RegisterNUICallback("JoinChannel", function(data, cb)
     local join = Radio.JoinChannel(data.frequency)
     if join then
-        cb({frequency = data.frequency, text = Radio.text, members = Radio.members[data.frequency]})
+        KC.TriggerServerCallback("radio:getmembers", function(radiomembers)
+            cb({frequency = data.frequency, text = Radio.text, members = radiomembers})
+        end, data.frequency)
     else
-        cb({frequency = "0", text = "Not In Radio", members = Radio.members[0]})
+        cb({frequency = "0", text = "Not In Radio", members = {}})
     end
 end)
 
