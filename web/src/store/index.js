@@ -5,51 +5,67 @@ import router from '@/router/index'
 
 export default createStore({
   state: {
-    Menu: true,
+    Menu: false,
 
     on: true,
 
     data: {
       name: "Hejsan",
-      channel: 0
+      channel: 0,
+      text: "Test",
+      volume: '100',
+      members: [
+        'Dev Devsson',
+        'Dev Devsson',
+      ],
     },
+
+    darkMode: false,
 
     settings: {
-      anon: true,
-      dark: true,
+      anon: false,
+      dark: false,
       size: '1',
     },
-
-    members: [
-      'Dev Devsson',
-      'Dev Devsson',
-    ],
-
-    volume: '100%'
   },
   getters: {
   },
   mutations: {
     increaseVolume(state) {
-      const currentVolume = parseInt(state.volume);
+      const currentVolume = parseInt(state.data.volume);
       if (!isNaN(currentVolume) && currentVolume <= 95) {
-        state.volume = `${currentVolume + 5}%`;
+        state.data.volume = `${currentVolume + 5}`;
       } else {
-        state.volume = '100%';
+        state.data.volume = '100';
       }
+
+      this.dispatch('setVolume', state.data.volume);
     },
-    
     decreaseVolume(state) {
-      const currentVolume = parseInt(state.volume);
+      const currentVolume = parseInt(state.data.volume);
       if (!isNaN(currentVolume) && currentVolume >= 5) {
-        state.volume = `${currentVolume - 5}%`;
+        state.data.volume = `${currentVolume - 5}`;
       }
+
+      this.dispatch('setVolume', state.data.volume);
+    },
+    toggleAnonymous(state) {
+      state.settings.anon = !state.settings.anon;
+      post('savesettings', { anon: state.settings.anon, size: state.settings.size })
+    },
+    updateSize(state, newSize) {
+      state.settings.size = newSize;
+      post('savesettings', { anon: state.settings.anon, size: state.settings.size })
+    },
+    toggleDarkMode(state) {
+      state.darkMode = !state.darkMode;
     },
   },
   actions: {
     Open(_commit, item) {
       this.state.Menu = true
       this.state.data = item.data
+      this.state.settings = item.settings
     },
     Close(){
       this.state.Menu = false
@@ -58,7 +74,7 @@ export default createStore({
     JoinChannel(_commit, { frequency, cb}) {
       post('JoinChannel', {frequency: frequency}, (res)=> {
         if (res) {
-          cb(true)
+          cb(res)
         } else {
           cb(false)
         }
@@ -66,7 +82,10 @@ export default createStore({
     },
     ToggleRadio(_commit, item) {
       post('ToggleRadio', item)
-    } 
+    },
+    setVolume(_commit, item) {
+      post('setVolume', item)
+    },
   },
   modules: {
   }

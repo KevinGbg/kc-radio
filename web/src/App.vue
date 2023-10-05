@@ -5,7 +5,7 @@
             <v-card v-if="$store.state.on" @mousemove.stop class="display" color="background">
                 <v-system-bar height="32" style="position: relative!important;" color="grey-darken-3">
 
-                    <v-tooltip :text="$store.state.volume">
+                    <v-tooltip :text="$store.state.data.volume + '%'">
                         <template v-slot:activator="{ props }">
                             <v-icon v-bind="props" icon="mdi-volume-high" class="ms-1"></v-icon>
                         </template>
@@ -47,6 +47,15 @@
     </v-slide-y-transition>
 </v-app>
 </template>
+
+<script setup>
+import store from '@/store/index'
+import { useTheme } from 'vuetify'
+
+const theme = useTheme()
+theme.global.current.value.dark = store.state.darkMode
+
+</script>
 
 <script>
 import router from '@/router/index'
@@ -96,12 +105,12 @@ export default {
             this.currentTime = `${hours}:${minutes}`;
         },
         increaseVolume() {
-      store.commit('increaseVolume');
-    },
+            store.commit('increaseVolume');
+        },
 
-    decreaseVolume() {
-      store.commit('decreaseVolume');
-    },
+        decreaseVolume() {
+            store.commit('decreaseVolume');
+        },
     },
     mounted() {
         this.escapeListener = window.addEventListener("keyup", (event) => {

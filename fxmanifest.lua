@@ -2,27 +2,25 @@ fx_version 'adamant'
 game 'gta5'
 lua54 'yes'
 
+author 'KevinGbg & Cirran'
+version 'v1.0.4'
+
 server_scripts {
 	'@mysql-async/lib/MySQL.lua',
-	'config.lua',
 	'server/*.lua'
 }
 
+shared_scripts {
+	'config.lua'
+}
+
 client_scripts {
-	'config.lua',
 	'client/*.lua'
 }
 
---ui_page 'web/dist/index.html'
-ui_page 'http://localhost:3000/' -- Dev
+ui_page 'web/dist/index.html'
 
 files {
     'web/dist/index.html',
     'web/dist/**/*',
-}
-
-escrow_ignore {
-	'server/sv_config.lua',
-	'client/cl_config.lua',
-	'config.lua'
 }

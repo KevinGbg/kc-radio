@@ -44,7 +44,9 @@ export default {
                 cb: (resp) => {
                     if (resp) {
                         router.push('/')
-                        store.state.data.channel = this.frequency
+                        store.state.data.channel = resp.frequency
+                        store.state.data.text = resp.text
+                        store.state.data.members = resp.members
                     } else {
                         console.log("Något blev fel försök igen")
                     }

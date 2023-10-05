@@ -10,7 +10,7 @@
             <v-icon>
               mdi-account
             </v-icon>
-            {{ member }}
+            {{ member.name }}
           </v-card>
         </div>
       </v-card>
@@ -22,7 +22,7 @@
 export default {
   computed: {
     radioMembers() {
-      return this.$store.state.members;
+      return this.$store.state.data.members;
     },
   },
 };

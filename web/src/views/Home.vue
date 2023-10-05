@@ -42,7 +42,7 @@
           </v-icon>
         </div>
         <div style="line-height: 1rem!important;" class="text-h6 pt-2">
-          In Radio
+          {{$store.state.data.text}}
         </div>
         <div class="text-caption d-flex justify-space-between">
           <p>
