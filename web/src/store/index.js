@@ -32,19 +32,19 @@ export default createStore({
   },
   mutations: {
     increaseVolume(state) {
-      const currentVolume = parseInt(state.volume);
+      const currentVolume = parseInt(state.data.volume);
       if (!isNaN(currentVolume) && currentVolume <= 95) {
-        state.volume = `${currentVolume + 5}%`;
+        state.data.volume = `${currentVolume + 5}%`;
       } else {
-        state.volume = '100%';
+        state.data.volume = '100%';
       }
 
       this.dispatch('setVolume', state.data.volume);
     },
     decreaseVolume(state) {
-      const currentVolume = parseInt(state.volume);
+      const currentVolume = parseInt(state.data.volume);
       if (!isNaN(currentVolume) && currentVolume >= 5) {
-        state.volume = `${currentVolume - 5}%`;
+        state.data.volume = `${currentVolume - 5}%`;
       }
 
       this.dispatch('setVolume', state.data.volume);
