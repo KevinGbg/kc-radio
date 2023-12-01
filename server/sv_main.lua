@@ -47,7 +47,7 @@ if Config.Framework == "ESX" then
 
     if Config.Item or Config.Both then
         KC.RegisterUsableItem(Config.ItemName, function(source)
-            TriggerClientEvent("radio:open")
+            TriggerClientEvent("radio:open", source)
         end)
     end
 
@@ -58,7 +58,7 @@ elseif Config.Framework == "REVOKED" then
 
     if Config.Item or Config.Both then
         KC.RegisterUsableItem(Config.ItemName, function(source)
-            TriggerClientEvent("radio:open")
+            TriggerClientEvent("radio:open", source)
         end)
     end
 
